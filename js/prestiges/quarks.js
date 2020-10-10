@@ -56,15 +56,15 @@ function getGravityEffect() {
     let logAmount = player.achievements.includes("18") ? "4" : "3"
     let quarkup1 = player.quarks.ups.includes("1");
 
-    if (quarkup1) effect = player.quarks.gravity.max(1).log(logAmount).log10().pow("0.9").plus(1)
-    else effect = player.quarks.gravity.max(1).log(logAmount).pow("0.9").plus(1)
+    if (quarkup1) effect = player.quarks.gravity.max(1).log(logAmount).log10().pow("0.8").plus(1)
+    else effect = player.quarks.gravity.max(1).log(logAmount).pow("0.8").plus(1)
 
     return formatValue(effect.toFixed("2").toString(), 2)
 }
 
 function getEnergyEffect() {
     if (player.quarks.energy.lt(1)) return "1"
-    let reduction = isNaN(player.quarks.energy.pow("0.6")) ? "1" : player.quarks.energy.pow("0.6")
+    let reduction = isNaN(player.quarks.energy.pow("0.4")) ? "1" : player.quarks.energy.pow("0.4")
     return formatValue(player.quarks.energy.max(1).div(reduction).plus(1).toFixed("2").toString(), 2)
 }
 
