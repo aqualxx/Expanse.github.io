@@ -27,7 +27,7 @@ function gainQuarks() {
     }
 
     $("dmup3boost").innerHTML = FORMULAS.dmup3boost()
-    player.expanse.upgrades = [{bought: 0}, {bought: 0}]
+    player.expanse.upgrades = STARTINGPLAYER().expanse.upgrades
     for (var i = 0; i < spaceupgrades; i++) {
         if ($("spaceup" + (i + 1)).classList.contains("complete")) $("spaceup" + (i + 1)).classList.remove("complete")
     }
