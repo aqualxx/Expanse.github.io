@@ -26,6 +26,7 @@ function setPlayer(obj) {
     }
     player.quarks.amount = new Decimal(obj.quarks.amount)
     player.quarks.energy = new Decimal(obj.quarks.energy)
+    player.quarks.mile4on = obj.quarks.mile4on
     $("energy").innerHTML = formatValue(player.quarks.energy.toFixed(0), 2)
     $("energyEffect").innerHTML = getEnergyEffect()
     player.quarks.gravity = new Decimal(obj.quarks.gravity)

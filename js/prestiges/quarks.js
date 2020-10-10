@@ -77,7 +77,7 @@ function getEnergyEffect() {
 
 function quarkLoop(time) {
     player.quarks.gravity = new Decimal(player.quarks.gravity).plus(getGravityGain(time))
-    if (player.quarks.milestones.includes("4")) player.darkmatter.amount = new Decimal(player.darkmatter.amount).plus(getDarkMatterGain().div("100"))
+    if (player.quarks.milestones.includes("4") && player.quarks.mile4on) player.darkmatter.amount = new Decimal(player.darkmatter.amount).plus(getDarkMatterGain().div("100"))
 }
 
 function updateQuarkHTML() {
@@ -90,6 +90,14 @@ function updateQuarkHTML() {
     $("energyProd").innerHTML = formatValue(getEnergyGain().toFixed(0), 2)
     $("energy").innerHTML = formatValue(player.quarks.energy.toFixed(0), 2)
     $("energyEffect").innerHTML = getEnergyEffect()
+}
+
+function mile4On() {
+    player.quarks.mile4on = true
+}
+
+function mile4Off() {
+    player.quarks.mile4on = false
 }
 
 $("convertGravity").addEventListener("click", function () {

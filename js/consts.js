@@ -53,7 +53,8 @@ const STARTINGPLAYER = function () {
 			gravity: new Decimal("0"),
 			energy: new Decimal("0"),
 			milestones: [],
-			ups: []
+			ups: [],
+			mile4on: true
 		},
 		achievements: [],
 		time: Date.now(),
