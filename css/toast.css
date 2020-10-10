@@ -1,0 +1,65 @@
+.toast-container {
+    color: #fff;
+    position: fixed;
+    z-index: 99;
+    right: 10px;
+    top: 10px;
+    font-size: 17px;
+    user-select: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.toast {
+    min-width: 150px;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    margin-bottom: 8px;
+}
+
+.toast.show {
+    /** make sure to change last param when changing toast settimeout */
+    -webkit-animation: toastfadein 0.5s, toastfadeout 0.5s 4.6s;
+    animation: toastfadein 0.5s, toastfadeout 0.5s 4.6s;
+}
+
+.toast-success {
+    background: rgba(126,211,33,.9);
+    box-shadow: 0 5px 15px rgba(126,211,33,.5);
+}
+
+.toast-info {
+    background: rgba(0,50,250,.9);
+    box-shadow: 0px 5px 15px rgba(0,50,250,.5);
+}
+
+.toast-error {
+    background: rgba(191,36,58,.9);
+    box-shadow: 0 5px 15px rgba(191,36,58,.5);
+}
+
+.toast-warn {
+    background: rgba(245,166,35,.9);
+    box-shadow: 0 5px 15px rgba(245,166,35,.5);
+}
+
+@-webkit-keyframes toastfadein {
+    from {right: 0; opacity: 0;} 
+    to {right: 10px; opacity: 1;}
+}
+
+@keyframes toastfadein {
+    from {right: 0; opacity: 0;}
+    to {right: 10px; opacity: 1;}
+}
+
+@-webkit-keyframes toastfadeout {
+    from {right: 10px; opacity: 1;} 
+    to {right: 0; opacity: 0;}
+}
+
+@keyframes toastfadeout {
+    from {right: 10px; opacity: 1;}
+    to {right: 0; opacity: 0;}
+}

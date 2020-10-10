@@ -1,0 +1,41 @@
+body {
+    background-color: #1f1f1f;
+    color: white
+}
+
+#ticker {
+    border-color: white;
+    background-color: #727272;
+}
+
+.optionSection {
+    background: rgb(100, 100, 100);
+    border: 1px solid white;
+}
+
+.dmup.complete {
+    cursor: not-allowed;
+    background-color: rgb(0, 80, 0);
+}
+
+#quarksBtn {
+    background-color: rgb(205, 0, 205);
+}
+
+#gainQuarks {
+    transition: background-color 1s ease;
+    background-color: rgb(200, 0, 200);
+}
+
+#quarkMilestones>div {
+    border: 1px solid white
+}
+
+#quarkMilestones>div>div.complete {
+    background: rgb(0, 150, 0)
+}
+
+#convertGravity {
+    transition: background-color 1s ease;
+    background-color: rgb(100, 100, 100);
+}

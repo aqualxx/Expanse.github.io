@@ -1,0 +1,2 @@
+/*! outline.js v1.2.0 - https://github.com/lindsayevans/outline.js/, minified by me */
+!function(e){var n=e.createElement("STYLE"),t="addEventListener"in e,o=function(n,o){t?e.addEventListener(n,o):e.attachEvent("on"+n,o)},i=function(e){n.styleSheet?n.styleSheet.cssText=e:n.innerHTML=e};e.getElementsByTagName("HEAD")[0].appendChild(n),o("mousedown",(function(){i(":focus{outline:0}::-moz-focus-inner{border:0;}")})),o("keydown",(function(){i("")}))}(document);

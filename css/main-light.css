@@ -1,0 +1,358 @@
+@font-face {
+    font-family: Inter;
+    src: url("./Inter.ttf");
+    font-display: block;
+}
+
+body {
+    font-family: monospace;
+    font-size: 20px;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+#news {
+    transition: color 1s linear, border 1s linear, background-color 1s linear;
+    position: relative;
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#ticker {
+    border: 2px solid grey;
+    line-height: 100%;
+    border-radius: 4px;
+    padding: 2px;
+    width: 75%;
+    overflow: hidden;
+    margin: auto;
+    text-align: left;
+    margin: 0 auto;
+}
+
+#nextFeature {
+    font-size: 18px;
+    font-family: Inter;
+}
+
+#loader {
+    transition: opacity 2s ease, visibility 2s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 2vw;
+}
+
+#game {
+    padding-top: 8px;
+    transition: opacity 500ms ease, color 500ms ease, transform 1s ease-out;
+    opacity: 0;
+    width: 100%;
+    height: calc(100% - 8px);
+}
+
+#game.implode {
+    transform: scale(0, 0);
+}
+
+.tabbtn {
+    border-radius: 10px;
+    border: solid #000000;
+    height: 50px;
+    width: 15%;
+    min-width: 150px;
+    cursor: pointer;
+}
+
+#achievements>tbody>tr>td {
+    text-align: center;
+    color: white;
+    padding: 2px 2px;
+}
+
+#achievements>tbody>tr>td>div {
+    width: 25px;
+    height: 25px;
+    padding: 25px;
+    border-radius: 5px;
+    background-color: rgb(255, 50, 50);
+    vertical-align: middle;
+    font-family: "Inter";
+    user-select: none;
+}
+
+[data-tooltip] {
+    position: relative;
+    z-index: 2;
+    white-space: pre-line;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+[data-tooltip]:before {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -100px;
+    padding: 7px;
+    width: 200px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 5%, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+    transition-duration: .5s;
+}
+
+[data-tooltip]:after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 5%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+    transition-duration: .5s;
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
+
+div.complete {
+    background-color: rgb(50, 128, 50) !important;
+}
+
+.tabs {
+    text-align: center;
+    margin: 2vh;
+    overflow-x: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.optionSection {
+    border: 1px black solid;
+    width: 50%;
+    padding: 10px 0 10px 0;
+}
+
+.optionBtn {
+    width: 245px;
+}
+
+#quarksBtn {
+    transition: background-color 1s ease;
+    background-color: rgb(255, 0, 255);
+    color:white;
+}
+
+.btn {
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.layerbtn {
+    margin-top: 20px;
+    border-radius: 25px;
+    border: solid rgba(0, 0, 0, 0.2);
+    padding: 35px;
+    font-size: 25px;
+}
+
+#createExpanse {
+    background-color: rgb(51, 153, 255);
+    transition: all 1s ease;
+}
+
+#createExpanse:hover {
+    background-color: rgb(0, 128, 255);
+}
+
+#gainDarkMatter {
+    animation: dmatter 10s ease-in-out infinite;
+    color: white;
+    border: 1px white solid;
+}
+
+@keyframes dmatter {
+    0% {
+        background-color: rgb(80, 80, 80)
+    }
+
+    50% {
+        background-color: rgb(60, 60, 60)
+    }
+
+    100% {
+        background-color: rgb(80, 80, 80)
+    }
+}
+
+.dmup {
+    font-size: 18px;
+    color: white;
+    height: 180px;
+    border: 1px white solid;
+    background-color: rgb(25, 25, 25);
+    width: 280px
+}
+
+.dmup.complete {
+    cursor: not-allowed;
+    background-color: rgb(0, 120, 0);
+}
+
+#darkmatter {
+    text-shadow: 2px 1px 1px #727272;
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: -100%;
+    left: -100%;
+}
+
+#space {
+    text-shadow: 2px 1px 1px #1d8d8d;
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#spaceProd {
+    font-size: 18px;
+}
+
+.spaceup {
+    background-color: rgb(0, 120, 180);
+    font-size: 18px;
+    height: 150px;
+    color: white;
+    border: 1px white solid;
+    width: 250px
+}
+
+.spaceup.complete {
+    background-color:
+        /*rgb(0, 200, 150)*/
+        rgb(0, 50, 255);
+    cursor: not-allowed
+}
+
+.quarkup {
+    background-color: rgb(150, 0, 150);
+    font-size: 18px;
+    height: 150px;
+    color: white;
+    border: 1px white solid;
+    width: 250px
+}
+
+.quarkup.complete {
+    background-color:
+        rgb(75, 0, 75);
+    cursor: not-allowed
+}
+
+sup {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+}
+
+#gainQuarks {
+    transition: background-color 1s ease;
+    background-color: rgb(250, 0, 250);
+    margin: 0 0 25px 0;
+}
+
+#quarks {
+    text-shadow: 2px 1px 1px #7d0076;
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#quarkMilestones {
+    display: flex;
+    justify-content: center;
+}
+
+#quarkMilestones>div {
+    border: 1px solid black;
+    width: 50%;
+}
+
+#quarkMilestones>div>div {
+    margin: 10px;
+    color: white;
+    border: 5px solid rgba(0, 0, 0, 0.2);
+    background: rgb(150, 0, 0)
+}
+
+#quarkMilestones>div>div.complete {
+    background: rgb(0, 100, 0)
+}
+
+#gravity {
+    text-shadow: 2px 1px 1px rgb(120, 120, 120);
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#convertGravity {
+    transition: background-color 1s ease;
+    background-color: rgb(120, 120, 120);
+    margin: 25px 0 25px 0;
+}
+
+#energy {
+    text-shadow: 2px 1px 1px rgb(200, 200, 0);
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media only screen and (max-width: 900px) {
+    .dmup {
+        width: 250px
+    }
+}
