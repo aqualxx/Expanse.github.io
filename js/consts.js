@@ -88,8 +88,7 @@ const ACH_DATA = {
 	},
 	"17": {
 		title: "I love grinding!",
-		desc: "Complete the requirements and preform a quark reset.",
-		reward: "Get a new dark matter upgrade"
+		desc: "Complete the requirements and preform a quark reset."
 	},
 	"18": {
 		title: "Light bulb incremental confirmed?!?!",
