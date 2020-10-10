@@ -15,7 +15,7 @@ function setTheme(type, animate = true) {
 
     player.options.theme = type
 
-    if (type === "dark") {
+    if (type === "Dark") {
         let link = document.createElement('link');
         link.type = 'text/css';
         link.rel = 'stylesheet';
