@@ -80,7 +80,7 @@ function updateQuarkHTML() {
     $("gravityGain").innerHTML = formatValue(getGravityGain(1000), 2)
     $("gravity").innerHTML = formatValue(player.quarks.gravity.toFixed(0), 2)
     $("gravityEffect").innerHTML = getGravityEffect()
-    $("energyProd").innerHTML = formatValue(getEnergyGain().toFixed(0))
+    $("energyProd").innerHTML = formatValue(getEnergyGain().toFixed(0), 2)
 }
 
 $("convertGravity").addEventListener("click", function () {
