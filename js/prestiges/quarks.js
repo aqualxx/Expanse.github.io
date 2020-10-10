@@ -38,7 +38,8 @@ const quarkmilestones = 2
 function getQuarkGain() {
     if (player.darkmatter.amount.lt("5e6") || player.expanse.size.lt("2.5e7")) return "0";
     return player.darkmatter.amount.div("5e6").plus(4).log(5)
-        .mul(player.expanse.size.div("2.5e7").plus(2).log(3)).mul(player.quarks.ups.includes("1") ? "2" : "1")
+        .mul(player.expanse.size.div("2.5e7").plus(2).log(3))
+        .mul(player.quarks.ups.includes("1") ? "2" : "1")
         .floor().max(0).toString()
 }
 
@@ -103,7 +104,7 @@ $("quarkup1").addEventListener("click", function() {
 
 $("quarkup2").addEventListener("click", function() {
     if (player.quarks.amount.gte("50") && player.quarks.energy.gte("50000") && !player.quarks.ups.includes("2")) {
-        player.quarks.amount = new Decimal(player.quarks.energy).minus("50")
+        player.quarks.amount = new Decimal(player.quarks.amount).minus("50")
         player.quarks.energy = new Decimal(player.quarks.energy).minus("50000")
         player.quarks.ups.push("2")
         $("energy").innerHTML = formatValue(player.quarks.energy.toFixed(0), 2)
