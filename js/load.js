@@ -55,7 +55,7 @@ function setupHTML() {
     }
 
     // space upgrades
-    for (var i = 0; i < spaceupgrades; i++) {
+    for (var i = 0; i < document.getElementsByClassName("spaceup").length; i++) {
         if (typeof oldSave.expanse.upgrades[i].bought === "number") {
             player.expanse.upgrades[i].bought = oldSave.expanse.upgrades[i].bought
             if (player.expanse.upgrades[i].bought) $("spaceup" + (i + 1)).classList.add("complete")
@@ -66,7 +66,7 @@ function setupHTML() {
     
     // dm upgrades
     if (player.darkmatter.upsunlocked) {
-        for (var i = 0; i < dmupamount; i++) {
+        for (var i = 0; i < document.getElementsByClassName("dmup").length; i++) {
             if (typeof oldSave.darkmatter.ups[i] === "boolean") {
                 player.darkmatter.ups.push(oldSave.darkmatter.ups[i])
                 if (player.darkmatter.ups[i]) $("dmup" + (i + 1)).classList.add("complete")
@@ -78,7 +78,7 @@ function setupHTML() {
 
     // quark upgrades
     if (oldSave.quarks.ups.length != 0) {
-        for (var i = 0; i < quarkups; i++) {
+        for (var i = 0; i < document.getElementsByClassName("quarkup").length; i++) {
             if (oldSave.quarks.ups.includes((i+1).toString())) {
                 player.quarks.ups.push((i+1).toString())
                 $("quarkup" + (i + 1)).classList.add("complete")
