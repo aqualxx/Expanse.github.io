@@ -38,7 +38,7 @@ function updateDMHTML() {
         "Reset all previous layers<br>to gain " +
         formatValue(gain.floor(), 2) +
         " dark matter" +
-        (gain.floor().lt("100") ? "<br>(Req: " + req + "m<sup>3</sup> of space)" : "")
+        (gain.floor().lt("100") ? "<br>(Next: " + (player.expanse.size.gte(req) ? formatSize(new Decimal(req).mul(gain.floor().plus(1))) : formatSize(req)) + " of space)" : "")
     $("darkmatter").innerHTML = formatValue(player.darkmatter.amount.toString(), 4)
     $("darkmattermul").innerHTML = getDarkMatterEffect();
     if (player.darkmatter.amount.gte(1)) $("dmup3boost").innerHTML = FORMULAS.dmup3boost()

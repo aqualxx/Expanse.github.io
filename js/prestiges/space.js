@@ -12,7 +12,7 @@ function spaceProduction(time) {
 
     let spaceup2effect = player.expanse.upgrades[1].bought ? "3" : "1";
 
-    let spaceup3effect = player.expanse.upgrades[2].bought && player.expanse.size.gte("5e5") ? "4" : "1";
+    let spaceup3effect = player.expanse.upgrades[2].bought && player.expanse.size.gte("5e3") ? "4" : "1";
 
     const addeffects = function(decimal) {
         return decimal
@@ -57,7 +57,7 @@ $("spaceup2").addEventListener("click", function() {
         player.expanse.upgrades[1].bought = 1;
     }
 })
-// quad after 2km
+// quad after 5km
 $("spaceup3").addEventListener("click", function() {
     if (player.expanse.size.gte("5e3") && !player.expanse.upgrades[2].bought) {
         player.expanse.size = new Decimal(player.expanse.size).minus("5e3");
