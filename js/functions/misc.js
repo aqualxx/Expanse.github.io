@@ -15,16 +15,16 @@ function setTheme(type, animate = true) {
 
     player.options.theme = type
 
-    if (type === "Dark") {
+    if (type === "dark") {
         let link = document.createElement('link');
         link.type = 'text/css';
         link.rel = 'stylesheet';
-        link.href = "css/main-Dark.css";
+        link.href = "css/main-dark.css";
         head.appendChild(link);
     } else {
         let links = document.getElementsByTagName("link")
         for (var i = 0; i < links.length; i++) {
-            if (links[i].href.includes("Dark")) links[i].remove();
+            if (links[i].href.includes("dark")) links[i].remove();
         }
     }
 
