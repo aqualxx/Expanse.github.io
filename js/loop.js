@@ -26,7 +26,7 @@ function gameLoop(time) {
 }
 
 function save() {
-	if (player.expanse.size.gt(1)) {
+	if (player.expanse.size.gt(0)) {
 		localStorage.setItem("expanseData", btoa(JSON.stringify(player)))
 		if (document.hasFocus()) toast.success("Game Saved!")
 	}

@@ -20,10 +20,10 @@ function spaceProduction(time) {
 
     const addeffects = function(decimal) {
         return decimal
-        .mul(spaceup4effect)
-        .mul(spaceup1effect)
-        .mul(spaceup2effect)
-        .mul(spaceup3effect)
+        .mul(player.darkmatter.ups[6] && player.expanse.upgrades[3].bought ? new Decimal(spaceup4effect).plus("0.5") : spaceup4effect)
+        .mul(player.darkmatter.ups[6] && player.expanse.upgrades[0].bought ? new Decimal(spaceup1effect).plus("0.5") : spaceup1effect)
+        .mul(player.darkmatter.ups[6] && player.expanse.upgrades[1].bought ? new Decimal(spaceup2effect).plus("0.5") : spaceup2effect)
+        .mul(player.darkmatter.ups[6] && player.expanse.upgrades[2].bought ? new Decimal(spaceup3effect).plus("0.5") : spaceup3effect)
         .mul(getDarkMatterEffect())
         .mul(dmup1effect)
         .div(getGravityEffect())

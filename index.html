@@ -40,8 +40,8 @@
                         <tbody>
                             <tr>
                                 <td><button id="spaceup4" class="btn spaceup">
-                                    Gain 5x more space until you reach 40m<sup>3</sup><br>
-                                    where it slows back down to standard speed<br>
+                                    Gain 5x more space until you reach 40m<sup>3</sup>,
+                                    then slows back down to standard speed<br>
                                     Cost: 10m<sup>3</sup> of space
                                 </button></td>
                                 <td><button id="spaceup1" class="btn spaceup">
@@ -78,13 +78,17 @@
                                 from 125m<sup>3</sup> to 100m<sup>3</sup>.<br>
                                 Cost: 5000 dark matter
                             </button></td>
-                        </tr>
-                        <tr>
                             <td><button id="dmup3" class="btn dmup" onclick="getDMUpgrade('3')">
                                 You gain more dark matter<br>
                                 based on your dark matter.<br>
                                 Cost: 20000 dark matter<br>
                                 Boost: <span id="dmup3boost"></span>x
+                            </button></td>                            
+                        </tr>
+                        <tr>
+                            <td><button id="dmup7" class="btn dmup" onclick="getDMUpgrade('7')">
+                                All space upgrades give a +0.5x higher multiplier.<br>
+                                Cost: 500000 dark matter.                                
                             </button></td>
                             <td><button id="dmup4" class="btn dmup" onclick="getDMUpgrade('4')">
                                 Improve the formula<br>
@@ -140,7 +144,7 @@
             </div>
         </div>
         <div id="optionsTab" style="display:none;">
-            <table style="margin: 0 auto;"><tbody>
+            <table style="margin: 0 auto;"><tbody id="optionsTable">
                 <tr>
                     <td><button id="hideTicker" class="btn optionBtn">Hide/Show news ticker</button></td>
                     <td><button id="changeTheme" class="btn optionBtn">Theme: Light</button></td>

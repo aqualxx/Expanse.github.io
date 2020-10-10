@@ -19,7 +19,8 @@ const dmupprices = [
 	"20000",
 	"1e6",
 	"",
-	"3500"
+	"3500",
+	"500000"
 ]
 
 const STARTINGPLAYER = function () {
@@ -89,12 +90,12 @@ const ACH_DATA = {
 	"17": {
 		title: "I love grinding!",
 		desc: "Complete the requirements and preform a quark reset.",
-		reward: "Get a new dark matter upgrade"
+		reward: "Gain 3x more dark matter."
 	},
 	"18": {
 		title: "Light bulb incremental confirmed?!?!",
 		desc: "Reach 10000 energy.",
-		reward: "Gravity has less of an effect"
+		reward: "Gravity has less of an effect."
 	},
 	"21": {
 		title: "But it's only quarks!",

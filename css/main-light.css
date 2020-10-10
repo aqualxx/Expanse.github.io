@@ -4,6 +4,10 @@
     font-display: block;
 }
 
+* {
+    font-family: "Inter";
+}
+
 body {
     font-family: monospace;
     font-size: 20px;
@@ -174,6 +178,10 @@ div.complete {
     width: 245px;
 }
 
+#optionsTable>tr>td>button {
+    height: 90px;
+}
+
 #quarksBtn {
     transition: background-color 1s ease;
     background-color: rgb(255, 0, 255);
@@ -275,7 +283,7 @@ div.complete {
 .spaceup.complete {
     background-color:
         /*rgb(0, 200, 150)*/
-        rgb(0, 50, 255);
+        rgb(50, 90, 255);;
     cursor: not-allowed
 }
 

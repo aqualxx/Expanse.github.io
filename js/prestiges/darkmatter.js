@@ -2,7 +2,7 @@ function gainDarkMatter() {
     let req = player.darkmatter.ups[1] ? "100" : "125"
     if (player.expanse.size.gte(req)) {
         player.darkmatter.amount = new Decimal(player.darkmatter.amount)
-            .plus(player.expanse.size.div(req).mul(FORMULAS.dmup3boost()).mul(FORMULAS.dmup5boost()))
+            .plus(player.expanse.size.div(req).mul(FORMULAS.dmup3boost()).mul(FORMULAS.dmup5boost()).mul(player.achievements.includes("17") ? "3" : "1"))
             .floor();
 
         updateDMHTML()
@@ -33,12 +33,13 @@ function getDarkMatterEffect() {
 
 function updateDMHTML() {
     let req = player.darkmatter.ups[1] ? "100" : "125"
-    let gain = player.expanse.size.div(req).mul(FORMULAS.dmup3boost()).mul(FORMULAS.dmup5boost())
+    let ach17 = player.achievements.includes("17") ? "3" : "1"
+    let gain = player.expanse.size.div(req).mul(FORMULAS.dmup3boost()).mul(FORMULAS.dmup5boost()).mul(ach17)
     $("gainDarkMatter").innerHTML =
         "Reset all previous layers<br>to gain " +
         formatValue(gain.floor(), 2) +
         " dark matter" +
-        (gain.floor().lt("100") ? "<br>(Next: " + (player.expanse.size.gte(req) ? formatSize(new Decimal(req).mul(gain.floor().plus(1))) : formatSize(req)) + " of space)" : "")
+        (gain.floor().lt("100") ? "<br>(Next: " + (player.expanse.size.gte(req) ? formatSize(new Decimal(req).mul(gain.div(ach17).floor().plus(1))) : formatSize(req)) + " of space)" : "")
     $("darkmatter").innerHTML = formatValue(player.darkmatter.amount.toString(), 4)
     $("darkmattermul").innerHTML = getDarkMatterEffect();
     if (player.darkmatter.amount.gte(1)) $("dmup3boost").innerHTML = FORMULAS.dmup3boost()
