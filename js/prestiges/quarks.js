@@ -102,9 +102,9 @@ $("quarkup1").addEventListener("click", function() {
 })
 
 $("quarkup2").addEventListener("click", function() {
-    if (player.quarks.amount.gte("50") && player.quarks.energy.gte("1e6") && !player.quarks.ups.includes("2")) {
+    if (player.quarks.amount.gte("50") && player.quarks.energy.gte("50000") && !player.quarks.ups.includes("2")) {
         player.quarks.amount = new Decimal(player.quarks.energy).minus("50")
-        player.quarks.energy = new Decimal(player.quarks.energy).minus("1e6")
+        player.quarks.energy = new Decimal(player.quarks.energy).minus("50000")
         player.quarks.ups.push("2")
         $("energy").innerHTML = formatValue(player.quarks.energy.toFixed(0), 2)
         $("energyEffect").innerHTML = getEnergyEffect()
