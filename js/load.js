@@ -77,11 +77,11 @@ function setupHTML() {
     }
 
     // quark upgrades
-    if (player.quarks.ups.length != 0) {
+    if (oldSave.quarks.ups.length != 0) {
         for (var i = 0; i < quarkups; i++) {
             if (oldSave.quarks.ups.includes(i.toString())) {
                 player.quarks.ups.push(i.toString())
-                if (!!parseFloat(player.quarks.ups[i])) $("quarkup" + (i + 1)).classList.add("complete")
+                if (player.quarks.ups[i]) $("quarkup" + (i + 1)).classList.add("complete")
             }
         }
     }
@@ -93,9 +93,7 @@ function setupHTML() {
         }
     }
 
-    if (player.quarks.milestones.includes("1")) {
-        $("dmup5").style.display = ""
-    }
+    if (player.quarks.milestones.includes("1")) $("dmup5").style.display = ""
 
     oldSave = ""
 }
