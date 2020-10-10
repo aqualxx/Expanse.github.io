@@ -1,3 +1,3 @@
 # Expanse.github.io
 
-A new game!
+A new game in beta!
