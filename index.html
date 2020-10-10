@@ -173,29 +173,47 @@
                         </div>
                         <div class="center" id="quarkmile2">
                             1000 quarks<br>
+                            Keep all bought space upgrades on quark reset
+                        </div>
+                        <div class="center" id="quarkmile3">
+                            2500 quarks<br>
                             Keep all bought dark matter upgrades on quark reset
-                        </div>                        
+                        </div>
+                        <div class="center" id="quarkmile4">
+                            4500 quarks<br>
+                            Gain 1% of dark matter gain per second.
+                        </div>
                     </div>
                 </div><br>
                 <button id="gainQuarks" class="btn" onclick="gainQuarks()">Reset all previous layers to gain <span id="quarkgain">0 quarks</span></button>
                 <div>You have <span id="quarks">0</span> <span id="quarksTxt">quarks</span>, which are producing <span id="gravityGain">0</span> gravity per/s</div>
                 <div>You have <span id="gravity">0</span> gravity, which in turn is slowing down the production of space by <span id="gravityEffect">1</span>x</div>
                 <button id="convertGravity" class="btn">Convert all your gravity to <span id="energyProd"></span> energy</button>
-                <div>Your <span id="energy">0</span> energy is speeding up the production of space by <span id="energyEffect">1</span>x</div>
-                <table id="quarkUpgrades" style="margin: 0 auto;">
-                    <tbody>
-                        <tr>
-                            <td><button id="quarkup1" class="btn quarkup">
-                                Quark gain is boosted by 2<br>
-                                Cost: 3000 Energy
-                            </button></td>
-                            <td><button id="quarkup2" class="btn quarkup">
-                                Log the gravity effect by 10<br>
-                                Cost: 50000 energy and 50 quarks
-                            </button></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div>Your <span id="energy">0</span> energy is speeding up the production of space by <span id="energyEffect">1</span>x</div><br>
+                <div id="quarkuptable">
+                    <table id="quarkUpgrades" style="margin: 0 auto;">
+                        <tbody>
+                            <tr>
+                                <td><button id="quarkup1" class="btn quarkup">
+                                    Quark gain is boosted by 2<br>
+                                    Cost: 3000 Energy
+                                </button></td>
+                                <td><button id="quarkup2" class="btn quarkup">
+                                    Log the gravity effect by 10<br>
+                                    Cost: 50000 energy and 50 quarks
+                                </button></td>
+                                <td><button id="quarkup3" class="btn quarkup">
+                                    Energy uses a better formula<br>
+                                    Cost: 30000 gravity and 75 quarks
+                                </button></td>
+                                <td><button id="quarkup4" class="btn quarkup">
+                                    The second dark matter upgrade no longer debuffs.<br>
+                                    Cost: 50000 energy, 105000 gravity and 150 quarks
+                                </button></td>
+                            </tr>
+                        </tbody>
+                    </table>                    
+                </div>
             </div>
         </div>
     </div>

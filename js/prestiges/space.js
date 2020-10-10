@@ -16,10 +16,18 @@ function spaceProduction(time) {
 
     let spaceup4removelimit = player.darkmatter.ups[5] ? true : player.expanse.size.lt("40")
 
-    let spaceup4effect = player.expanse.upgrades[3].bought && (spaceup4removelimit) ? player.darkmatter.ups[5] ? "3" : "5" : "1";
+    let spaceup4debuff = player.darkmatter.ups[5] ? player.quarks.ups.includes("4") ? "5" : "3" : "5"
 
-    const addeffects = function(decimal) {
-        return decimal
+    let spaceup4effect = player.expanse.upgrades[3].bought && (spaceup4removelimit) ? spaceup4debuff : "1";
+
+    let ach22reward = player.achievements.includes("22") ? "2" : "1"
+
+    if (!isNaN(player.expanse.size.log(1.5)) && player.expanse.size.log(1.5).sign != -1)
+        production = formulaStart.plus(1);
+    else
+        production = player.expanse.size.plus(1);
+    
+    return production.mul(time / 1000).div(40)
         .mul(player.darkmatter.ups[6] && player.expanse.upgrades[3].bought ? new Decimal(spaceup4effect).plus("0.5") : spaceup4effect)
         .mul(player.darkmatter.ups[6] && player.expanse.upgrades[0].bought ? new Decimal(spaceup1effect).plus("0.5") : spaceup1effect)
         .mul(player.darkmatter.ups[6] && player.expanse.upgrades[1].bought ? new Decimal(spaceup2effect).plus("0.5") : spaceup2effect)
@@ -28,15 +36,8 @@ function spaceProduction(time) {
         .mul(dmup1effect)
         .div(getGravityEffect())
         .mul(getEnergyEffect())
+        .mul(ach22reward)
         .mul(FORMULAS.dmup5boost());
-    }
-
-    if (!isNaN(player.expanse.size.log(1.5)) && player.expanse.size.log(1.5).sign != -1)
-        production = formulaStart.plus(1);
-    else
-        production = player.expanse.size.plus(1);
-    
-    return addeffects(production.mul(time / 1000).div(40));
 }
 
 function updateSpaceHTML() {

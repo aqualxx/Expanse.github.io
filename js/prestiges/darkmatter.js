@@ -2,7 +2,7 @@ function gainDarkMatter() {
     let req = player.darkmatter.ups[1] ? "100" : "125"
     if (player.expanse.size.gte(req)) {
         player.darkmatter.amount = new Decimal(player.darkmatter.amount)
-            .plus(player.expanse.size.div(req).mul(FORMULAS.dmup3boost()).mul(FORMULAS.dmup5boost()).mul(player.achievements.includes("17") ? "3" : "1"))
+            .plus(getDarkMatterGain())
             .floor();
 
         updateDMHTML()
@@ -16,6 +16,15 @@ function gainDarkMatter() {
         player.expanse.size = new Decimal(1);
         if (player.darkmatter.amount.gt(player.darkmatter.best)) player.darkmatter.best = player.darkmatter.amount
     }
+}
+
+function getDarkMatterGain() {
+    let req = player.darkmatter.ups[1] ? "100" : "125"
+    if (player.expanse.size.gte(req)) {
+            return player.expanse.size.div(req).mul(FORMULAS.dmup3boost()).mul(FORMULAS.dmup5boost()).mul(player.achievements.includes("17") ? "3" : "1").mul(player.achievements.includes("23") ? "5" : "1")
+            .floor();
+    } else
+        return new Decimal("0")
 }
 
 function getDarkMatterEffect() {

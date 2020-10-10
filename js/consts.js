@@ -102,11 +102,19 @@ const ACH_DATA = {
 		desc: "Have 150000 gravity at one time or another"
 	},
 	"22": {
-		title: "Need a bigger battery",
-		desc: "Not currently implemented"
+		title: "haha space go brrr",
+		desc: "Buy 3 or more quark upgrades."
 	},
-	"23": {},
-	"24": {},
+	"23": {
+		title: "How is this expanding?",
+		desc: "Reach 5 Mm³ of space without any dark matter",
+		reward: "Dark matter gain is multiplied by 5."
+	},
+	"24": {
+		title: "Hey, guys, soup's ready!",
+		desc: "Reach 2000 quarks",
+		reward: "The energy effect is slightly boosted"
+	},
 	"25": {},
 	"26": {},
 	"27": {},

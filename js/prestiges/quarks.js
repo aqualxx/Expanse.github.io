@@ -13,11 +13,13 @@ function gainQuarks() {
         $("dmup5").style.display = ""
     }
     if (player.quarks.amount.gte("1000")) grantQuarkMile("2")
+    if (player.quarks.amount.gte("2500")) grantQuarkMile("3")
+    if (player.quarks.amount.gte("4500")) grantQuarkMile("4")
 
     player.expanse.size = new Decimal(0);
     player.darkmatter.amount = new Decimal(0);
 
-    if (!player.quarks.milestones.includes("2")) {
+    if (!player.quarks.milestones.includes("3")) {
         player.darkmatter.ups = []
         for (var i = 0; i < dmupamount; i++) {
             if ($("dmup" + (i + 1)).classList.contains("complete")) $("dmup" + (i + 1)).classList.remove("complete")
@@ -27,13 +29,15 @@ function gainQuarks() {
     }
 
     $("dmup3boost").innerHTML = FORMULAS.dmup3boost()
-    player.expanse.upgrades = STARTINGPLAYER().expanse.upgrades
-    for (var i = 0; i < spaceupgrades; i++) {
-        if ($("spaceup" + (i + 1)).classList.contains("complete")) $("spaceup" + (i + 1)).classList.remove("complete")
+    if (!player.quarks.milestones.includes("2")) {
+        player.expanse.upgrades = STARTINGPLAYER().expanse.upgrades
+        for (var i = 0; i < spaceupgrades; i++) {
+            if ($("spaceup" + (i + 1)).classList.contains("complete")) $("spaceup" + (i + 1)).classList.remove("complete")
+        }        
     }
 }
 
-const quarkmilestones = 2
+const quarkmilestones = 4
 
 function getQuarkGain() {
     if (player.darkmatter.amount.lt("5e6") || player.expanse.size.lt("2.5e7")) return "0";
@@ -53,6 +57,7 @@ function getEnergyGain() {
 
 function getGravityEffect() {
     if (player.quarks.gravity.lt(1)) return "1"
+
     let effect = new Decimal(0)
     let logAmount = player.achievements.includes("18") ? "4" : "3"
     let quarkup1 = player.quarks.ups.includes("2");
@@ -65,12 +70,14 @@ function getGravityEffect() {
 
 function getEnergyEffect() {
     if (player.quarks.energy.lt(1)) return "1"
-    let reduction = isNaN(player.quarks.energy.pow("0.4")) ? "1" : player.quarks.energy.pow("0.4")
+    let reductionPower = player.quarks.ups.includes("3") ? player.achievements.includes("24") ? player.quarks.energy.pow("0.44") : player.quarks.energy.pow("0.45") : player.quarks.energy.pow("0.6")
+    let reduction = isNaN(reductionPower) ? "1" : reductionPower
     return formatValue(player.quarks.energy.max(1).div(reduction).plus(1).toFixed("2").toString(), 2)
 }
 
 function quarkLoop(time) {
     player.quarks.gravity = new Decimal(player.quarks.gravity).plus(getGravityGain(time))
+    if (player.quarks.milestones.includes("4")) player.darkmatter.amount = new Decimal(player.darkmatter.amount).plus(getDarkMatterGain().div("100"))
 }
 
 function updateQuarkHTML() {
@@ -81,6 +88,8 @@ function updateQuarkHTML() {
     $("gravity").innerHTML = formatValue(player.quarks.gravity.toFixed(0), 2)
     $("gravityEffect").innerHTML = getGravityEffect()
     $("energyProd").innerHTML = formatValue(getEnergyGain().toFixed(0), 2)
+    $("energy").innerHTML = formatValue(player.quarks.energy.toFixed(0), 2)
+    $("energyEffect").innerHTML = getEnergyEffect()
 }
 
 $("convertGravity").addEventListener("click", function () {
@@ -96,8 +105,6 @@ $("quarkup1").addEventListener("click", function() {
     if (player.quarks.energy.gte("3000") && !player.quarks.ups.includes("1")) {
         player.quarks.energy = new Decimal(player.quarks.energy).minus("3000")
         player.quarks.ups.push("1")
-        $("energy").innerHTML = formatValue(player.quarks.energy.toFixed(0), 2)
-        $("energyEffect").innerHTML = getEnergyEffect()
         $("quarkup1").classList.add("complete")
     }
 })
@@ -107,10 +114,27 @@ $("quarkup2").addEventListener("click", function() {
         player.quarks.amount = new Decimal(player.quarks.amount).minus("50")
         player.quarks.energy = new Decimal(player.quarks.energy).minus("50000")
         player.quarks.ups.push("2")
-        $("energy").innerHTML = formatValue(player.quarks.energy.toFixed(0), 2)
-        $("energyEffect").innerHTML = getEnergyEffect()
         $("quarkup2").classList.add("complete")
     }
 })
 
-const quarkups = 2
+$("quarkup3").addEventListener("click", function() {
+    if (player.quarks.amount.gte("75") && player.quarks.gravity.gte("30000") && !player.quarks.ups.includes("3")) {
+        player.quarks.amount = new Decimal(player.quarks.amount).minus("75")
+        player.quarks.gravity = new Decimal(player.quarks.gravity).minus("30000")
+        player.quarks.ups.push("3")
+        $("quarkup3").classList.add("complete")
+    }
+})
+
+$("quarkup4").addEventListener("click", function() {
+    if (player.quarks.amount.gte("150") && player.quarks.gravity.gte("105000") && player.quarks.energy.gte("50000") && !player.quarks.ups.includes("4")) {
+        player.quarks.amount = new Decimal(player.quarks.amount).minus("150")
+        player.quarks.gravity = new Decimal(player.quarks.gravity).minus("105000")
+        player.quarks.energy = new Decimal(player.quarks.energy).minus("50000")
+        player.quarks.ups.push("4")
+        $("quarkup4").classList.add("complete")
+    }
+})
+
+const quarkups = 4
