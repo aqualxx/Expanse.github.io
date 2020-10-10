@@ -27,7 +27,7 @@ function updateAchievements() {
         new Achievement("13").give();
         $("darkmattermul").innerHTML = getDarkMatterEffect()
     }
-    if (spaceProduction(50).gte("50"))
+    if (spaceProduction(1000).gte("50"))
         new Achievement("14").give();
     if (player.darkmatter.upsunlocked)
         new Achievement("15").give();
