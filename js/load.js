@@ -79,8 +79,8 @@ function setupHTML() {
     // quark upgrades
     if (oldSave.quarks.ups.length != 0) {
         for (var i = 0; i < quarkups; i++) {
-            if (oldSave.quarks.ups.includes(i.toString())) {
-                player.quarks.ups.push(i.toString())
+            if (oldSave.quarks.ups.includes((i+1).toString())) {
+                player.quarks.ups.push((i+1).toString())
                 $("quarkup" + (i + 1)).classList.add("complete")
             }
         }
