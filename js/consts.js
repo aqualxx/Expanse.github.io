@@ -33,6 +33,7 @@ const STARTINGPLAYER = function () {
 			upgrades: [
 				{bought: 0},
 				{bought: 0},
+				{bought: 0},
 				{bought: 0}
 			]
 		},

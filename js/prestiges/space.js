@@ -14,8 +14,11 @@ function spaceProduction(time) {
 
     let spaceup3effect = player.expanse.upgrades[2].bought && player.expanse.size.gte("5e3") ? "4" : "1";
 
+    let spaceup4effect = player.expanse.upgrades[3].bought && player.expanse.size.lt("40") ? "5" : "1";
+
     const addeffects = function(decimal) {
         return decimal
+        .mul(spaceup4effect)
         .mul(spaceup1effect)
         .mul(spaceup2effect)
         .mul(spaceup3effect)
@@ -65,4 +68,12 @@ $("spaceup3").addEventListener("click", function() {
         player.expanse.upgrades[2].bought = 1;
     }
 })
-const spaceupgrades = 3;
+// 10x until 40m
+$("spaceup4").addEventListener("click", function() {
+    if (player.expanse.size.gte("10") && !player.expanse.upgrades[3].bought) {
+        player.expanse.size = new Decimal(player.expanse.size).minus("10");
+        $("spaceup4").classList.add("complete");
+        player.expanse.upgrades[3].bought = 1;
+    }
+})
+const spaceupgrades = 4;
