@@ -32,9 +32,9 @@ function getDarkMatterEffect() {
     let gain = new Decimal("1")
     if (player.darkmatter.amount.gte("1")) {
         if (betterFormula1) {
-            gain = player.darkmatter.amount.mul(4).log(1.25)
+            gain = player.darkmatter.amount.mul(4).log(player.quarks.ups.includes("5") ? "1.05" : "1.25")
         } else {
-            gain = player.darkmatter.amount.mul(2).log(1.5).plus(1)
+            gain = player.darkmatter.amount.mul(2).log(player.quarks.ups.includes("5") ? "1.25" : "1.5").plus(1)
         }
     }
     return darkMatterScaling(gain).toFixed(2).toString()

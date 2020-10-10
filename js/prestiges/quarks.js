@@ -145,4 +145,14 @@ $("quarkup4").addEventListener("click", function() {
     }
 })
 
-const quarkups = 4
+$("quarkup5").addEventListener("click", function() {
+    if (player.quarks.amount.gte("75") && player.quarks.gravity.gte("30000") && player.quarks.energy.gte("30000") && !player.quarks.ups.includes("5")) {
+        player.quarks.amount = new Decimal(player.quarks.amount).minus("75")
+        player.quarks.gravity = new Decimal(player.quarks.gravity).minus("30000")
+        player.quarks.energy = new Decimal(player.quarks.energy).minus("30000")
+        player.quarks.ups.push("5")
+        $("quarkup5").classList.add("complete")
+    }
+})
+
+const quarkups = 5
