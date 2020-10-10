@@ -81,7 +81,7 @@ function setupHTML() {
         for (var i = 0; i < quarkups; i++) {
             if (oldSave.quarks.ups.includes(i.toString())) {
                 player.quarks.ups.push(i.toString())
-                if (player.quarks.ups[i]) $("quarkup" + (i + 1)).classList.add("complete")
+                $("quarkup" + (i + 1)).classList.add("complete")
             }
         }
     }
