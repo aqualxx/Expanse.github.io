@@ -66,4 +66,4 @@ $("dmup5").addEventListener("click", function () {
     }
 })
 
-const dmupamount = "5"
+const dmupamount = "6"

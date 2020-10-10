@@ -14,7 +14,9 @@ function spaceProduction(time) {
 
     let spaceup3effect = player.expanse.upgrades[2].bought && player.expanse.size.gte("5e3") ? "4" : "1";
 
-    let spaceup4effect = player.expanse.upgrades[3].bought && player.expanse.size.lt("40") ? "5" : "1";
+    let spaceup4removelimit = player.darkmatter.ups[5] ? true : player.expanse.size.lt("40")
+
+    let spaceup4effect = player.expanse.upgrades[3].bought && (spaceup4removelimit) ? player.darkmatter.ups[5] ? "3" : "5" : "1";
 
     const addeffects = function(decimal) {
         return decimal
