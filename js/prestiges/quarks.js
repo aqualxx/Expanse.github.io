@@ -73,7 +73,7 @@ function quarkLoop(time) {
 }
 
 function updateQuarkHTML() {
-    $("quarks").innerHTML = player.quarks.amount
+    $("quarks").innerHTML = formatValue(player.quarks.amount.toFixed(0), 2)
     $("quarksTxt").innerHTML = "quark" + pluralize(player.quarks.amount)
     $("quarkgain").innerHTML = getQuarkGain() + " quark" + pluralize(getQuarkGain())
     $("gravityGain").innerHTML = formatValue(getGravityGain(1000), 2)
