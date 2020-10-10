@@ -13,8 +13,8 @@ function gainQuarks() {
         $("dmup5").style.display = ""
     }
     if (player.quarks.amount.gte("1000")) grantQuarkMile("2")
-    if (player.quarks.amount.gte("2500")) grantQuarkMile("3")
-    if (player.quarks.amount.gte("4500")) grantQuarkMile("4")
+    if (player.quarks.amount.gte("2000")) grantQuarkMile("3")
+    if (player.quarks.amount.gte("3500")) grantQuarkMile("4")
 
     player.expanse.size = new Decimal(0);
     player.darkmatter.amount = new Decimal(0);
@@ -118,8 +118,8 @@ $("quarkup1").addEventListener("click", function() {
 })
 
 $("quarkup2").addEventListener("click", function() {
-    if (player.quarks.amount.gte("50") && player.quarks.energy.gte("50000") && !player.quarks.ups.includes("2")) {
-        player.quarks.amount = new Decimal(player.quarks.amount).minus("50")
+    if (player.quarks.amount.gte("60") && player.quarks.energy.gte("50000") && !player.quarks.ups.includes("2")) {
+        player.quarks.amount = new Decimal(player.quarks.amount).minus("60")
         player.quarks.energy = new Decimal(player.quarks.energy).minus("50000")
         player.quarks.ups.push("2")
         $("quarkup2").classList.add("complete")
@@ -127,31 +127,31 @@ $("quarkup2").addEventListener("click", function() {
 })
 
 $("quarkup3").addEventListener("click", function() {
-    if (player.quarks.amount.gte("75") && player.quarks.gravity.gte("30000") && !player.quarks.ups.includes("3")) {
-        player.quarks.amount = new Decimal(player.quarks.amount).minus("75")
+    if (player.quarks.amount.gte("80") && player.quarks.gravity.gte("30000") && !player.quarks.ups.includes("3")) {
+        player.quarks.amount = new Decimal(player.quarks.amount).minus("80")
         player.quarks.gravity = new Decimal(player.quarks.gravity).minus("30000")
         player.quarks.ups.push("3")
         $("quarkup3").classList.add("complete")
     }
 })
 
-$("quarkup4").addEventListener("click", function() {
-    if (player.quarks.amount.gte("150") && player.quarks.gravity.gte("105000") && player.quarks.energy.gte("50000") && !player.quarks.ups.includes("4")) {
-        player.quarks.amount = new Decimal(player.quarks.amount).minus("150")
-        player.quarks.gravity = new Decimal(player.quarks.gravity).minus("105000")
-        player.quarks.energy = new Decimal(player.quarks.energy).minus("50000")
-        player.quarks.ups.push("4")
-        $("quarkup4").classList.add("complete")
-    }
-})
-
 $("quarkup5").addEventListener("click", function() {
-    if (player.quarks.amount.gte("75") && player.quarks.gravity.gte("30000") && player.quarks.energy.gte("30000") && !player.quarks.ups.includes("5")) {
-        player.quarks.amount = new Decimal(player.quarks.amount).minus("75")
+    if (player.quarks.amount.gte("100") && player.quarks.gravity.gte("30000") && player.quarks.energy.gte("30000") && !player.quarks.ups.includes("5")) {
+        player.quarks.amount = new Decimal(player.quarks.amount).minus("100")
         player.quarks.gravity = new Decimal(player.quarks.gravity).minus("30000")
         player.quarks.energy = new Decimal(player.quarks.energy).minus("30000")
         player.quarks.ups.push("5")
         $("quarkup5").classList.add("complete")
+    }
+})
+
+$("quarkup4").addEventListener("click", function() {
+    if (player.quarks.amount.gte("200") && player.quarks.gravity.gte("105000") && player.quarks.energy.gte("50000") && !player.quarks.ups.includes("4")) {
+        player.quarks.amount = new Decimal(player.quarks.amount).minus("200")
+        player.quarks.gravity = new Decimal(player.quarks.gravity).minus("105000")
+        player.quarks.energy = new Decimal(player.quarks.energy).minus("50000")
+        player.quarks.ups.push("4")
+        $("quarkup4").classList.add("complete")
     }
 })
 
