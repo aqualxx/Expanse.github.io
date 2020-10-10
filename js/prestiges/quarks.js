@@ -54,7 +54,7 @@ function getGravityEffect() {
     if (player.quarks.gravity.lt(1)) return "1"
     let effect = new Decimal(0)
     let logAmount = player.achievements.includes("18") ? "4" : "3"
-    let quarkup1 = player.quarks.ups.includes("1");
+    let quarkup1 = player.quarks.ups.includes("2");
 
     if (quarkup1) effect = player.quarks.gravity.max(1).log(logAmount).log10().pow("0.8").plus(1)
     else effect = player.quarks.gravity.max(1).log(logAmount).pow("0.8").plus(1)
