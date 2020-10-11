@@ -19,7 +19,7 @@ function gainQuarks() {
     player.expanse.size = new Decimal(0);
     player.darkmatter.amount = new Decimal(0);
 
-    if ($("unlockAutoGravity").style.display === "none") $("unlockAutoGravity").style.display = ""
+    if ($("unlockAutoGravity").style.display === "none" && player.quarks.auto.gravityTick.gt("50")) $("unlockAutoGravity").style.display = ""
 
     if (!player.quarks.milestones.includes("3")) {
         player.darkmatter.ups = []
