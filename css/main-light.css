@@ -285,7 +285,7 @@ div.complete {
 }
 
 .spaceup {
-    background-color: rgb(0, 120, 180);
+    background-color: rgb(0, 140, 210);
     font-size: 18px;
     height: 150px;
     color: white;
@@ -296,7 +296,7 @@ div.complete {
 .spaceup.complete {
     background-color:
         /*rgb(0, 200, 150)*/
-        rgb(50, 90, 255);;
+        rgb(20, 70, 255);;
     cursor: not-allowed
 }
 
