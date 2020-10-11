@@ -44,7 +44,7 @@ function getDarkMatterEffect() {
 function updateDMHTML() {
     let req = player.darkmatter.ups[1] ? "100" : "125"
     let ach17 = player.achievements.includes("17") ? "3" : "1"
-    let gain = player.expanse.size.div(req).mul(FORMULAS.dmup3boost()).mul(FORMULAS.dmup5boost()).mul(ach17)
+    let gain = player.expanse.size.div(req).mul(FORMULAS.dmup3boost()).mul(FORMULAS.dmup5boost()).mul(ach17).mul(player.achievements.includes("23") ? "5" : "1")
     $("gainDarkMatter").innerHTML =
         "Reset all previous layers<br>to gain " +
         formatValue(gain.floor(), 2) +
@@ -77,4 +77,4 @@ $("dmup5").addEventListener("click", function () {
     }
 })
 
-const dmupamount = "7"
+const dmupamount = "8"

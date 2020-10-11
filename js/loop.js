@@ -27,16 +27,21 @@ function gameLoop(time) {
 }
 
 var autos = {
-	quarkGravity: {
+	quarks: {
 		nextGravity: 0
 	}
 }
 
 function automation(time) {
+	if (player.darkmatter.auto.unlocked && player.darkmatter.auto.active) {
+		if (getDarkMatterGain().gte(player.darkmatter.auto.req)) {
+			gainDarkMatter()
+		}
+	}
 	if (player.quarks.auto.unlocked && player.quarks.auto.active) {
-		autos.quarkGravity.nextGravity += time
-		if (player.quarks.auto.gravityTick.lte(autos.quarkGravity.nextGravity)) {
-			autos.quarkGravity.nextGravity = 0
+		autos.quarks.nextGravity += time
+		if (player.quarks.auto.gravityTick.lte(autos.quarks.nextGravity)) {
+			autos.quarks.nextGravity = 0
 			if (player.quarks.auto.gravityTick.gt("50")) convertGravity()
 		}
 	}

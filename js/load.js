@@ -20,6 +20,18 @@ function setPlayer(obj) {
     player.darkmatter.amount = new Decimal(obj.darkmatter.amount);
     player.darkmatter.upsunlocked = obj.darkmatter.upsunlocked;
     player.darkmatter.unlocked = obj.darkmatter.unlocked
+
+    player.darkmatter.auto.active = obj.darkmatter.auto.active
+    player.darkmatter.auto.req = new Decimal(obj.darkmatter.auto.req)
+    player.darkmatter.auto.unlocked = obj.darkmatter.auto.unlocked
+
+    if (player.darkmatter.auto.unlocked) {
+        $("unlockAutoDM").style.display = "none"
+        $("autoDMSection").style.display = ""
+        $("dmAutoBtn").innerHTML = player.darkmatter.auto.active ? "Automator Active" : "Automator Disabled"
+        $("autoDMReqInput").value = formatValue(player.darkmatter.auto.req, 2)
+        $("autoDMReq").innerHTML = formatValue(player.darkmatter.auto.req, 2)
+    }
     
     player.quarks.unlocked = obj.quarks.unlocked
     if (player.quarks.unlocked) {
@@ -31,9 +43,11 @@ function setPlayer(obj) {
     player.quarks.mile4on = obj.quarks.mile4on
     player.quarks.auto.gravityTick = new Decimal(obj.quarks.auto.gravityTick)
     player.quarks.auto.unlocked = obj.quarks.auto.unlocked
+    player.quarks.auto.active = obj.quarks.auto.active
     if (player.quarks.auto.unlocked) {
         $("autoGravitySection").style.display = ""
         $("unlockAutoGravity").style.display = "none"
+        $("gravityAutoBtn").innerHTML = player.quarks.auto.active ? "Automator Active" : "Automator Disabled"
     }
     $("gravityAutoUp").innerHTML = "Upgrade to "+new Decimal(player.quarks.auto.gravityTick).pow("0.996").toFixed(0)+"ms for 50 quarks"
     $("autoGravityTime").innerHTML = player.quarks.auto.gravityTick.toFixed(0)+"ms"

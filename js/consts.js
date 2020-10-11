@@ -46,7 +46,12 @@ const STARTINGPLAYER = function () {
 			amount: new Decimal("0"),
 			best: new Decimal("0"),
 			ups: [],
-			upsunlocked: false
+			upsunlocked: false,
+			auto: {
+				req: new Decimal("0"),
+				unlocked: false,
+				active: false
+			}
 		},
 		quarks: {
 			unlocked: false,
