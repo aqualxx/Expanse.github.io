@@ -41,7 +41,7 @@ function updateAchievements() {
         new Achievement("21").give();
     if (player.quarks.ups.length >= 3)
         new Achievement("22").give();
-    if (player.expanse.size.gte("5e6") && player.darkmatter.amount.eq("0"))
+    if (player.expanse.size.gte("1.5e5") && player.darkmatter.amount.eq("0"))
         new Achievement("23").give();
     if (player.quarks.amount.gte("2000"))
         new Achievement("24").give()

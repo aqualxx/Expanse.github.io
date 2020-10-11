@@ -119,7 +119,7 @@ const ACH_DATA = {
 	},
 	"23": {
 		title: "How is this expanding?",
-		desc: "Reach 5 Mm³ of space without any dark matter",
+		desc: "Reach 150km of space without any dark matter",
 		reward: "Dark matter gain is multiplied by 5."
 	},
 	"24": {
