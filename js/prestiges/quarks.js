@@ -80,7 +80,7 @@ function getEnergyEffect() {
 function quarkLoop(time) {
     player.quarks.gravity = new Decimal(player.quarks.gravity).plus(getGravityGain(time))
     if (player.quarks.auto.gravityTick.lte("50")) convertGravity()
-    if (player.quarks.milestones.includes("4") && player.quarks.mile4on) player.darkmatter.amount = new Decimal(player.darkmatter.amount).plus(getDarkMatterGain().div("100"))
+    if (player.quarks.milestones.includes("4") && player.quarks.mile4on) player.darkmatter.amount = new Decimal(player.darkmatter.amount).plus(getDarkMatterGain().div("1000").div("10"))
 }
 
 function updateQuarkHTML() {

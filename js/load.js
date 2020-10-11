@@ -20,6 +20,7 @@ function setPlayer(obj) {
     player.darkmatter.amount = new Decimal(obj.darkmatter.amount);
     player.darkmatter.upsunlocked = obj.darkmatter.upsunlocked;
     player.darkmatter.unlocked = obj.darkmatter.unlocked
+    
     player.quarks.unlocked = obj.quarks.unlocked
     if (player.quarks.unlocked) {
         $("quarksBtn").style.display = ""
