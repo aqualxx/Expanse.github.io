@@ -30,6 +30,7 @@ function getDarkMatterGain() {
 function getDarkMatterEffect() {
     let betterFormula1 = player.achievements.includes("13")
     let gain = new Decimal("1")
+    let dmup7boost = player.darkmatter.ups[7] ? "1.5" : "1"
     if (player.darkmatter.amount.gte("1")) {
         if (betterFormula1) {
             gain = player.darkmatter.amount.mul(4).log(player.quarks.ups.includes("5") ? "1.05" : "1.25")
@@ -37,7 +38,7 @@ function getDarkMatterEffect() {
             gain = player.darkmatter.amount.mul(2).log(player.quarks.ups.includes("5") ? "1.25" : "1.5").plus(1)
         }
     }
-    return darkMatterScaling(gain).toFixed(2).toString()
+    return darkMatterScaling(gain).mul(dmup7boost).toFixed(2).toString()
 }
 
 function updateDMHTML() {

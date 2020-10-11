@@ -20,7 +20,8 @@ const dmupprices = [
 	"1e6",
 	"1e6",
 	"3500",
-	"500000"
+	"500000",
+	"1e12"
 ]
 
 const STARTINGPLAYER = function () {
