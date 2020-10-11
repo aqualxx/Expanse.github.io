@@ -59,18 +59,12 @@ function setPlayer(obj) {
     player.updateHTMLtime = obj.updateHTMLtime;
 
     oldSave = obj
-    
+
     loadAutos()
+    setupHTML()
 }
 
 function loadAutos() {
-    if (player.darkmatter.auto.unlocked) {
-        $("unlockAutoDM").style.display = "none"
-        $("autoDMSection").style.display = ""
-        $("dmAutoBtn").innerHTML = player.darkmatter.auto.active ? "Automator Active" : "Automator Disabled"
-        $("autoDMReqInput").value = formatValue(player.darkmatter.auto.req, 2)
-        $("autoDMReq").innerHTML = formatValue(player.darkmatter.auto.req, 2)
-    }
     if (player.quarks.auto.unlocked) {
         $("autoGravitySection").style.display = ""
         $("unlockAutoGravity").style.display = "none"
@@ -82,6 +76,14 @@ function loadAutos() {
         $("gravitySection").style.display = "none"
         $("gravityAutoUp").style.display = "none"
     }
+    if (!oldSave.darkmatter.auto) player.darkmatter.auto = STARTINGPLAYER().darkmatter.auto
+    if (player.darkmatter.auto.unlocked) {
+        $("unlockAutoDM").style.display = "none"
+        $("autoDMSection").style.display = ""
+        $("dmAutoBtn").innerHTML = player.darkmatter.auto.active ? "Automator Active" : "Automator Disabled"
+        $("autoDMReqInput").value = formatValue(player.darkmatter.auto.req, 2)
+        $("autoDMReq").innerHTML = formatValue(player.darkmatter.auto.req, 2)
+    }    
 }
 
 function setupHTML() {

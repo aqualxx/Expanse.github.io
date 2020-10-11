@@ -39,7 +39,6 @@ function loadgame() {
         }, 50);
     } else
         setPlayer(STARTINGPLAYER())
-    setupHTML()
 }
 
 loadgame()
