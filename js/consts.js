@@ -58,7 +58,7 @@ const STARTINGPLAYER = function () {
 			auto: {
 				unlocked: false,
 				active: true,
-				gravityTick: 5000
+				gravityTick: new Decimal("5000")
 			}
 		},
 		achievements: [],
