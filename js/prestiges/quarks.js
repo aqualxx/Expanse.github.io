@@ -87,12 +87,12 @@ function updateQuarkHTML() {
     $("quarks").innerHTML = formatValue(player.quarks.amount.toFixed(0), 2)
     $("quarksTxt").innerHTML = "quark" + pluralize(player.quarks.amount)
     $("quarkgain").innerHTML = getQuarkGain() + " quark" + pluralize(getQuarkGain())
-    $("gravityGain").innerHTML = formatValue(getGravityGain(1000), 2)
+    $("gravityGain").innerHTML = formatValue(getGravityGain(1000).toFixed(0), 2)
     $("gravity").innerHTML = formatValue(player.quarks.gravity.toFixed(0), 2)
-    $("gravityEffect").innerHTML = getGravityEffect()
+    $("gravityEffect").innerHTML = formatValue(getGravityEffect(), 2)
     $("energyProd").innerHTML = formatValue(getEnergyGain().toFixed(0), 2)
     $("energy").innerHTML = formatValue(player.quarks.energy.toFixed(0), 2)
-    $("energyEffect").innerHTML = getEnergyEffect()
+    $("energyEffect").innerHTML = formatValue(getEnergyEffect(), 2)
 }
 
 function mile4On() {
