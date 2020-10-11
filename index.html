@@ -23,6 +23,7 @@
             <button id="achBtn" class="tabbtn" onclick="setTab('achTab')">Achievements</button>
             <button id="statsBtn" class="tabbtn" onclick="setTab('statsTab')">Stats</button>
             <button id="optionsBtn" class="tabbtn" onclick="setTab('optionsTab')">Options</button>
+            <button id="autoBtn" class="tabbtn" onclick="setTab('autoTab')">Automation</button>
             <button id="quarksBtn" class="tabbtn" style="display: none;" onclick="setTab('quarksTab')">Quarks</button>
         </div>
         <div id="mainTab">
@@ -165,6 +166,16 @@
             <br>
             <div style="text-align: center;">NOTE: Game is still in beta, expect some bugs!</div>
         </div>
+        <div id="autoTab" style="display:none;">
+            <div class="center">
+                <button class="btn" id="unlockAutoGravity" style="display:none;">Unlock auto gravity conversion<br> for 500 quarks</button>
+                <div class="autoSection" id="autoGravitySection" style="display: none;">
+                    Automate Gravity conversion<br>
+                    <span id="autoGravityTime">5000ms</span> for every convert<br><br>
+                    <button class="btn" id="gravityAutoUp">Upgrade to 4900ms for 20 quarks</button><button class="btn" id="gravityAutoBtn">Automator Active</button>
+                </div>
+            </div>
+        </div>
         <div id="quarksTab" style="display:none;">
             <div class="center">
                 <div id="quarkMilestones">
@@ -189,9 +200,11 @@
                     </div>
                 </div><br>
                 <button id="gainQuarks" class="btn" onclick="gainQuarks()">Reset all previous layers to gain <span id="quarkgain">0 quarks</span></button>
-                <div>You have <span id="quarks">0</span> <span id="quarksTxt">quarks</span>, which are producing <span id="gravityGain">0</span> gravity per/s</div>
-                <div>You have <span id="gravity">0</span> gravity, which in turn is slowing down the production of space by <span id="gravityEffect">1</span>x</div>
-                <button id="convertGravity" class="btn">Convert all your gravity to <span id="energyProd"></span> energy</button>
+                <div>You have <span id="quarks">0</span> <span id="quarksTxt">quarks</span>, which are producing <span id="gravityGain">0</span> <span id="quarkProdType">gravity</span> per/s</div>
+                <span id="gravitySection">
+                    <div>You have <span id="gravity">0</span> gravity, which in turn is slowing down the production of space by <span id="gravityEffect">1</span>x</div>
+                    <button id="convertGravity" class="btn">Convert all your gravity to <span id="energyProd"></span> energy</button>                    
+                </span>
                 <div>Your <span id="energy">0</span> energy is speeding up the production of space by <span id="energyEffect">1</span>x</div><br>
                 <div id="quarkuptable">
                     <table id="quarkUpgrades" style="margin: 0 auto;">
@@ -240,6 +253,7 @@
     <script src="js/load.js"></script>
     <script src="js/main.js"></script>
     <script src="js/loop.js"></script>
+    <script src="js/auto.js"></script>
     <script src="js/options.js"></script>
 </body>
 </html>

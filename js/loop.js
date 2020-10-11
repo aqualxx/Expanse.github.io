@@ -21,8 +21,25 @@ function gameLoop(time) {
 	if (player.quarks.unlocked) {
 		quarkLoop(time)
 	}
+	automation(time)
 	updateHTML()
 	updateAchievements()
+}
+
+var autos = {
+	quarkGravity: {
+		nextGravity: 0
+	}
+}
+
+function automation(time) {
+	if (player.quarks.auto.unlocked && player.quarks.auto.active) {
+		autos.quarkGravity.nextGravity += time
+		if (player.quarks.auto.gravityTick.lte(autos.quarkGravity.nextGravity)) {
+			autos.quarkGravity.nextGravity = 0
+			if (player.quarks.auto.gravityTick.gt("50")) convertGravity()
+		}
+	}
 }
 
 function save() {

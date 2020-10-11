@@ -23,10 +23,26 @@ function setPlayer(obj) {
     player.quarks.unlocked = obj.quarks.unlocked
     if (player.quarks.unlocked) {
         $("quarksBtn").style.display = ""
+        $("unlockAutoGravity").style.display = ""
     }
     player.quarks.amount = new Decimal(obj.quarks.amount)
     player.quarks.energy = new Decimal(obj.quarks.energy)
     player.quarks.mile4on = obj.quarks.mile4on
+    player.quarks.auto.gravityTick = new Decimal(obj.quarks.auto.gravityTick)
+    player.quarks.auto.unlocked = obj.quarks.auto.unlocked
+    if (player.quarks.auto.unlocked) {
+        $("autoGravitySection").style.display = ""
+        $("unlockAutoGravity").style.display = "none"
+    }
+    $("gravityAutoUp").innerHTML = "Upgrade to "+new Decimal(player.quarks.auto.gravityTick).pow("0.996").toFixed(0)+"ms for 50 quarks"
+    $("autoGravityTime").innerHTML = player.quarks.auto.gravityTick.toFixed(0)+"ms"
+    if (player.quarks.auto.gravityTick.lte("50")) {
+        $("autoGravityTime").innerHTML = player.quarks.auto.gravityTick.toFixed(0) + "ms (max)"
+        $("quarkProdType").innerHTML = "energy"
+        $("gravitySection").style.display = "none"
+        $("gravityAutoUp").style.display = "none"
+    }
+
     $("energy").innerHTML = formatValue(player.quarks.energy.toFixed(0), 2)
     $("energyEffect").innerHTML = getEnergyEffect()
     player.quarks.gravity = new Decimal(obj.quarks.gravity)

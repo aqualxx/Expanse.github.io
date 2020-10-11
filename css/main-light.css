@@ -372,6 +372,12 @@ sup {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#autoBtn {
+    /*transition: background-color 1s ease;*/
+    background-color: rgb(100, 100, 100);
+    color:white;
+}
+
 .on {
     background-color: green;
     border: 2px solid black;
@@ -398,6 +404,12 @@ sup {
 #quarkuptable {
     width: 100%;
     overflow-x: auto;
+}
+
+.autoSection {
+    width: 100%;
+    padding: 50px 0;
+    background-color: #727272;
 }
 
 @media only screen and (max-width: 900px) {

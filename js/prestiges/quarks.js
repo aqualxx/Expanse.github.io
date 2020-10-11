@@ -19,6 +19,8 @@ function gainQuarks() {
     player.expanse.size = new Decimal(0);
     player.darkmatter.amount = new Decimal(0);
 
+    if ($("unlockAutoGravity").style.display === "none") $("unlockAutoGravity").style.display = ""
+
     if (!player.quarks.milestones.includes("3")) {
         player.darkmatter.ups = []
         for (var i = 0; i < dmupamount; i++) {
@@ -77,6 +79,7 @@ function getEnergyEffect() {
 
 function quarkLoop(time) {
     player.quarks.gravity = new Decimal(player.quarks.gravity).plus(getGravityGain(time))
+    if (player.quarks.auto.gravityTick.lte("50")) convertGravity()
     if (player.quarks.milestones.includes("4") && player.quarks.mile4on) player.darkmatter.amount = new Decimal(player.darkmatter.amount).plus(getDarkMatterGain().div("100"))
 }
 
@@ -100,14 +103,16 @@ function mile4Off() {
     player.quarks.mile4on = false
 }
 
-$("convertGravity").addEventListener("click", function () {
+function convertGravity() {
     if (player.quarks.gravity.gt(0)) {
         player.quarks.energy = new Decimal(player.quarks.energy).plus(getEnergyGain())
         player.quarks.gravity = new Decimal("0")
         $("energy").innerHTML = formatValue(player.quarks.energy.toFixed(0), 2)
         $("energyEffect").innerHTML = getEnergyEffect()
     }
-})
+}
+
+$("convertGravity").addEventListener("click", convertGravity)
 
 $("quarkup1").addEventListener("click", function() {
     if (player.quarks.energy.gte("3000") && !player.quarks.ups.includes("1")) {
