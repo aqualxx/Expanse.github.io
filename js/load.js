@@ -105,8 +105,8 @@ function setupHTML() {
 
     // quark milestones
     for (var i = 0; i < quarkmilestones; i++) {
-        if (oldSave.quarks.milestones.includes(i.toString())) {
-            grantQuarkMile(i.toString())
+        if (oldSave.quarks.milestones.includes((i+1).toString())) {
+            grantQuarkMile((i+1).toString())
         }
     }
 
