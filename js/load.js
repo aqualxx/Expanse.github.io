@@ -21,6 +21,8 @@ function setPlayer(obj) {
     player.darkmatter.upsunlocked = obj.darkmatter.upsunlocked;
     player.darkmatter.unlocked = obj.darkmatter.unlocked
 
+    if (!obj.darkmatter.auto) player.darkmatter.auto = STARTINGPLAYER().darkmatter.auto
+
     player.darkmatter.auto.active = obj.darkmatter.auto.active
     player.darkmatter.auto.req = new Decimal(obj.darkmatter.auto.req)
     player.darkmatter.auto.unlocked = obj.darkmatter.auto.unlocked
@@ -76,7 +78,6 @@ function loadAutos() {
         $("gravitySection").style.display = "none"
         $("gravityAutoUp").style.display = "none"
     }
-    if (!oldSave.darkmatter.auto) player.darkmatter.auto = STARTINGPLAYER().darkmatter.auto
     if (player.darkmatter.auto.unlocked) {
         $("unlockAutoDM").style.display = "none"
         $("autoDMSection").style.display = ""
