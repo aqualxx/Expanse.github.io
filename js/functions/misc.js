@@ -30,3 +30,5 @@ function setTheme(type, animate = true) {
 
     $("changeTheme").innerHTML = "Theme: " + player.options.theme
 }
+
+function nanDestroyer(val) {return isNaN(val) ? new Decimal("1") : val}
