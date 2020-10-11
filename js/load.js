@@ -24,14 +24,6 @@ function setPlayer(obj) {
     player.darkmatter.auto.active = obj.darkmatter.auto.active
     player.darkmatter.auto.req = new Decimal(obj.darkmatter.auto.req)
     player.darkmatter.auto.unlocked = obj.darkmatter.auto.unlocked
-
-    if (player.darkmatter.auto.unlocked) {
-        $("unlockAutoDM").style.display = "none"
-        $("autoDMSection").style.display = ""
-        $("dmAutoBtn").innerHTML = player.darkmatter.auto.active ? "Automator Active" : "Automator Disabled"
-        $("autoDMReqInput").value = formatValue(player.darkmatter.auto.req, 2)
-        $("autoDMReq").innerHTML = formatValue(player.darkmatter.auto.req, 2)
-    }
     
     player.quarks.unlocked = obj.quarks.unlocked
     if (player.quarks.unlocked) {
@@ -44,19 +36,9 @@ function setPlayer(obj) {
     player.quarks.auto.gravityTick = new Decimal(obj.quarks.auto.gravityTick)
     player.quarks.auto.unlocked = obj.quarks.auto.unlocked
     player.quarks.auto.active = obj.quarks.auto.active
-    if (player.quarks.auto.unlocked) {
-        $("autoGravitySection").style.display = ""
-        $("unlockAutoGravity").style.display = "none"
-        $("gravityAutoBtn").innerHTML = player.quarks.auto.active ? "Automator Active" : "Automator Disabled"
-    }
+
     $("gravityAutoUp").innerHTML = "Upgrade to "+new Decimal(player.quarks.auto.gravityTick).pow("0.996").toFixed(0)+"ms for 50 quarks"
     $("autoGravityTime").innerHTML = player.quarks.auto.gravityTick.toFixed(0)+"ms"
-    if (player.quarks.auto.gravityTick.lte("50")) {
-        $("autoGravityTime").innerHTML = player.quarks.auto.gravityTick.toFixed(0) + "ms (max)"
-        $("quarkProdType").innerHTML = "energy"
-        $("gravitySection").style.display = "none"
-        $("gravityAutoUp").style.display = "none"
-    }
 
     $("energy").innerHTML = formatValue(player.quarks.energy.toFixed(0), 2)
     $("energyEffect").innerHTML = getEnergyEffect()
@@ -77,6 +59,29 @@ function setPlayer(obj) {
     player.updateHTMLtime = obj.updateHTMLtime;
 
     oldSave = obj
+    
+    loadAutos()
+}
+
+function loadAutos() {
+    if (player.darkmatter.auto.unlocked) {
+        $("unlockAutoDM").style.display = "none"
+        $("autoDMSection").style.display = ""
+        $("dmAutoBtn").innerHTML = player.darkmatter.auto.active ? "Automator Active" : "Automator Disabled"
+        $("autoDMReqInput").value = formatValue(player.darkmatter.auto.req, 2)
+        $("autoDMReq").innerHTML = formatValue(player.darkmatter.auto.req, 2)
+    }
+    if (player.quarks.auto.unlocked) {
+        $("autoGravitySection").style.display = ""
+        $("unlockAutoGravity").style.display = "none"
+        $("gravityAutoBtn").innerHTML = player.quarks.auto.active ? "Automator Active" : "Automator Disabled"
+    }
+    if (player.quarks.auto.gravityTick.lte("50")) {
+        $("autoGravityTime").innerHTML = player.quarks.auto.gravityTick.toFixed(0) + "ms (max)"
+        $("quarkProdType").innerHTML = "energy"
+        $("gravitySection").style.display = "none"
+        $("gravityAutoUp").style.display = "none"
+    }
 }
 
 function setupHTML() {
