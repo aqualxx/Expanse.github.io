@@ -74,23 +74,15 @@ function setupHTML() {
 
     // space upgrades
     for (var i = 0; i < document.getElementsByClassName("spaceup").length; i++) {
-        if (typeof oldSave.expanse.upgrades[i].bought === "number") {
-            player.expanse.upgrades[i].bought = oldSave.expanse.upgrades[i].bought
-            if (player.expanse.upgrades[i].bought) $("spaceup" + (i + 1)).classList.add("complete")
-        } else {
-            player.expanse.upgrades[i].bought = 0
-        }
+        player.expanse.upgrades[i].bought = oldSave.expanse.upgrades[i].bought
+        if (player.expanse.upgrades[i].bought) $("spaceup" + (i + 1)).classList.add("complete")
     }
     
     // dm upgrades
     if (player.darkmatter.upsunlocked) {
         for (var i = 0; i < document.getElementsByClassName("dmup").length; i++) {
-            if (typeof oldSave.darkmatter.ups[i] === "boolean") {
-                player.darkmatter.ups.push(oldSave.darkmatter.ups[i])
-                if (player.darkmatter.ups[i]) $("dmup" + (i + 1)).classList.add("complete")
-            } else {
-                player.darkmatter.ups.push(false)
-            }
+            player.darkmatter.ups.push(oldSave.darkmatter.ups[i])
+            if (player.darkmatter.ups[i]) $("dmup" + (i + 1)).classList.add("complete")
         }
     }
 
