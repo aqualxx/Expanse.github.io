@@ -64,7 +64,7 @@ function setPlayer(obj) {
 
     loadAutos()
     setupHTML()
-    $("scaled").setAttribute("data-tooltip", "Scalings:\nSpace production:\nStarting at 10 Mm, /1.2")
+    $("scaled").setAttribute("data-tooltip", "Scalings:\nSpace production:\nStarting at 75 Mm³, /2")
 }
 
 function loadAutos() {

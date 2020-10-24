@@ -1,4 +1,5 @@
 function spaceScaling(space) {
-    if (space.gte("1e7")) return space.minus("1e7").div("1.2").plus("1e7");
+    let scaledreq = "7.5e7"
+    if (space.gte(scaledreq)) return space.minus(scaledreq).div("2").plus(scaledreq);
     return space
 }
