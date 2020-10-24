@@ -104,7 +104,7 @@ body {
     background-color: rgb(255, 50, 50);
     vertical-align: middle;
     font-family: "Inter";
-    user-select: none;
+    user-select: none; 
 }
 
 #scaled {
