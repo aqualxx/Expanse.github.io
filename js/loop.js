@@ -11,7 +11,7 @@ function gameLoop(time) {
 		.plus(spaceProduction(time))
 		.max(0)
 	if (player.expanse.size.gt(player.expanse.best)) player.expanse.best = player.expanse.size
-	if ($("gainDarkMatter").classList.contains("hidden") && player.expanse.size.gte("75")) {
+	if ($("gainDarkMatter").classList.contains("hidden") && player.expanse.size.gte("100")) {
 		$("gainDarkMatter").classList.remove("hidden")
 	}
 	if (!player.quarks.unlocked && player.darkmatter.amount.gte("5e6") && player.expanse.size.gte("2.5e7")) {

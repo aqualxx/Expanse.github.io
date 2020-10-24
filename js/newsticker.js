@@ -61,7 +61,8 @@ newsArray = [
     "BREAKING NEWS: Asking aqualxx to add something into the game actually works!",
     "These are very original news tickers, according to this game we are getting data from.",
     "Don't mind me and my 6 trillion commits to fix tiny things, it's nothing compared to my other projects.",
-    "Maybe my game breaks because I release updates too early... wait that's not in the script?"
+    "Maybe my game breaks because I release updates too early... wait that's not in the script?",
+    "Like my friend always says, \"If it aint broke, don't fix it,\" while his last update was 5 years ago."
 ];
 /*
 let script = 

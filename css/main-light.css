@@ -107,6 +107,16 @@ body {
     user-select: none;
 }
 
+#scaled {
+    padding: 50px;
+    line-height: 100px;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+    background-color: green;
+    user-select: none;
+}
+
 [data-tooltip] {
     position: relative;
     z-index: 2;
